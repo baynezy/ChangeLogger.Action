@@ -1,6 +1,7 @@
 var target = Argument("target", "Test");
 var configuration = Argument("configuration", "Release");
 var versionNumber = Argument("versionNumber", "0.1.0");
+var testFilter = Argument("testFilter", "");
 var solutionFolder = "./";
 var appProject = "./src/ChangeLogger.Action/ChangeLogger.Action.csproj";
 
@@ -33,13 +34,19 @@ Task("Build")
 Task("Test")
 	.Does(() =>
 	{
+	var settings = new DotNetTestSettings
+                   		{
+                   			NoRestore = true,
+                   			Configuration = configuration,
+                               Loggers = new string[] { "junit;LogFileName=results.xml" }
+                   		};
+                   		
+        if (!string.IsNullOrEmpty(testFilter))
+        {
+            settings.Filter = testFilter;
+        }
 		// Run tests
-		DotNetTest(solutionFolder, new DotNetTestSettings
-		{
-			NoRestore = true,
-			Configuration = configuration,
-            Loggers = new string[] { "junit;LogFileName=results.xml" }
-		});
+		DotNetTest(solutionFolder, settings);
 	});
 
 RunTarget(target);
