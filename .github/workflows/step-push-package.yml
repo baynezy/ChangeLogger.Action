@@ -28,12 +28,12 @@ jobs:
         id: lowercase_tag
         run: |
           echo "repo_owner=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-          echo "container_name=$(echo 'SemVer.Action' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "container_name=$(echo 'changelog.action' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
           
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./src/SemVer.Json/Dockerfile
+          file: ./src/ChangeLogger.Action/Dockerfile
           push: true
           tags: ghcr.io/${{ env.repo_owner }}/${{ env.container_name }}:${{ inputs.version }}

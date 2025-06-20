@@ -1,51 +1,35 @@
-# SemVer Action
+# Changelog.Action
 
-This is a GitHub Action to allow you to use a JSON file to manage your project's Semantic Version Number.
+This is a GitHub Action update the versions and links in you changelog file.
+As outlined in the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) standard.
 
 ## Usage
 
-To use this action, you need to create a JSON file in your repository with the following structure:
+Create a `CHANGELOG.md` file in the root of your repository, and add the following content:
 
-```json
-{
-    "major": 0,
-    "minor": 1,
-    "patch": 0,
-    "build": 0
-}
-```
-### Reading the version number
+```markdown
+# Changelog
 
-Then you can use this action in your workflow to read this file.:
+All notable changes to this project will be documented in this file.
 
-```yaml
-    - name: Read Version
-      uses: Afterlife-Guide/SemVer.Action@0.1.0
-      with:
-        path: 'version.json'
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
 ```
 
-It will create the following outputs:
+As you add features, bug fixes, or other changes to your project, you can use this action to update the changelog.
 
-- `major`: The major version number.
-- `minor`: The minor version number.
-- `patch`: The patch version number.
-- `build`: The build version number.
-- `version`: The full version number.
+### Updating the changelog on release
 
-### Writing the version number
-
-You can also use this action to write the version number back to the file.:
+Then you can use this action in your workflow to read this file:
 
 ```yaml
-    - name: Write Version
-      uses: Afterlife-Guide/SemVer.Action@0.1.0
+    - name: Update Changelog
+      uses: baynezy/ChangeLogger.Action@0.1.0
       with:
-        path: 'version.json'
-        major: 0
-        minor: 1
-        patch: 1
-        build: 0
+        tag: '1.0.0'
+        path: './'
 ```
 
 ## License

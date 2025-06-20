@@ -1,0 +1,12 @@
+﻿# Changelog
+
+## [Unreleased]
+
+## [1.0.0] - Date_1
+
+### Added
+
+- New feature
+
+[unreleased]: https://github.com/OwnerName/RepoName/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/OwnerName/RepoName/compare/GenesisHash...1.0.0
