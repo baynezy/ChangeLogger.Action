@@ -10,6 +10,9 @@ inputs:
   repo-path:
     description: 'The path to the repository'
     required: true
+outputs:
+  release-notes:
+    description: 'The content from the [Unreleased] section of the changelog'
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/baynezy/changelog.action:0.0.6.10'

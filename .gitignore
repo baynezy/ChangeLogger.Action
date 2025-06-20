@@ -95,3 +95,9 @@ fabric.properties
 
 #Verify
 *.received.txt
+
+# Cake Tools
+.cake-tools/
+
+# Test Results
+TestResults
