@@ -1,6 +1,7 @@
 ﻿using AutoFixture.Xunit2;
 using ChangeLogger.Action.Features.UpdateChangeLog;
 using ChangeLogger.Action.Shared;
+using CommandLine;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 
@@ -68,5 +69,39 @@ public class UpdateChangeLogCommandTests
             .Be(0);
         _mockFileReader.Received(1)
             .WriteAllText(options.LogPath, updatedContent);
+    }
+
+    [Fact]
+    public void UpdateChangeLogOptions_WhenDefaultValuesUsed_ThenShouldHaveCorrectDefaults()
+    {
+        // arrange & act
+        var options = new UpdateChangeLogOptions
+        {
+            Tag = "1.0.0"
+        };
+
+        // assert
+        options.LogPath.Should()
+            .Be("./CHANGELOG.md");
+        options.RepositoryPath.Should()
+            .Be("/");
+    }
+
+    [Fact]
+    public void UpdateChangeLogOptions_WhenParsedWithOnlyTag_ThenShouldUseDefaults()
+    {
+        // arrange
+        var args = new[] { "update", "--tag", "1.0.0" };
+
+        // act
+        var parseResult = Parser.Default.ParseArguments<UpdateChangeLogOptions>(args);
+        UpdateChangeLogOptions? options = null;
+        parseResult.WithParsed(opts => options = opts);
+
+        // assert
+        options.Should().NotBeNull();
+        options!.Tag.Should().Be("1.0.0");
+        options.LogPath.Should().Be("./CHANGELOG.md");
+        options.RepositoryPath.Should().Be("/");
     }
 }
