@@ -17,9 +17,9 @@ runs:
     - '-t'
     - ${{ inputs.tag }}
     - '-l'
-    - '/github/workspace${{ inputs.log-path }}'
+    - '/github/workspace/${{ inputs.log-path }}'
     - '-p'
-    - '/github/workspace${{ inputs.repo-path }}'
+    - '/github/workspace/${{ inputs.repo-path }}'
 branding:
   icon: 'git-merge'
   color: 'red'
