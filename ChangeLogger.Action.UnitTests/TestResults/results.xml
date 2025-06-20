@@ -1,0 +1,32 @@
+<testsuites>
+  <testsuite name="ChangeLogger.Action.UnitTests.dll" tests="18" skipped="0" failures="0" errors="0" time="1.0257012999999997" timestamp="2025-06-20T15:04:33" hostname="fv-az1360-490" id="0" package="ChangeLogger.Action.UnitTests.dll">
+    <properties />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenOwnerShouldBeSetCorrectly(repositoryUrl: &quot;TestOwner/TestRepo&quot;, expectedOwnerName: &quot;TestOwner&quot;, _: &quot;TestRepo&quot;)" time="0.2553573" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Features.UpdateChangeLog.UpdateChangeLogCommandTests" name="Update_ChangeLogDoesExist_ThenReturnsSuccessCode(options: UpdateChangeLogOptions { LogPath = &quot;LogPath2ca08e14-92af-4314-b7a0-270d343345d4&quot;, RepositoryPath = &quot;RepositoryPath94b297bc-f38b-48e0-8e42-e436d17b5c9e&quot;, Tag = &quot;Tagb3fa544f-beb4-41d5-b805-5d5062c7f5cb&quot; }, changeLogContent: &quot;changeLogContent13f8d758-2d45-4527-acfa-168aae814a&quot;···, updatedContent: &quot;updatedContentaed6dd21-0537-475f-b72e-457f9fad4988&quot;, inputs: Inputs { Tag = Tagb2cda447-9d15-4840-965d-2dc8d517b546, Date = 07/04/2024, Repository = Repository { Name = Name5732b5f9-798d-4ccb-af9c-301dc21ae991, Owner = Owner { Name = Name40458fe4-816b-4691-b6ff-a0d823f98ffa }, GenesisHash = GenesisHashbcdcd160-7765-4356-a579-b27b25c11f02 }, ChangeLogPath = ChangeLogPathf2bebffc-8cf2-49c3-afe5-4cd970602f95 })" time="0.1859953" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Features.UpdateChangeLog.UpdateChangeLogCommandTests" name="Update_ChangeLogDoesNotExist_ThenReturnsErrorCode(options: UpdateChangeLogOptions { LogPath = &quot;LogPath4181c47e-b92c-4f0c-9b6d-7dfb3dc7fff5&quot;, RepositoryPath = &quot;RepositoryPath44222ca1-7f3f-489d-9a8c-7260cd18cf9d&quot;, Tag = &quot;Tagc1212945-49e9-487f-9fcd-5d94e826846d&quot; })" time="0.0006367" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenOwnerShouldBeSetCorrectly(repositoryUrl: &quot;ChangeLogger/ChangeLogger.Action&quot;, expectedOwnerName: &quot;ChangeLogger&quot;, _: &quot;ChangeLogger.Action&quot;)" time="0.0049245" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenOwnerShouldBeSetCorrectly(repositoryUrl: &quot;AnotherOwner/AnotherRepository&quot;, expectedOwnerName: &quot;AnotherOwner&quot;, _: &quot;AnotherRepository&quot;)" time="0.0028509" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Features.UpdateChangeLog.ChangeLogTransformerTests" name="UpdateChangelog_MovesUnreleasedToNewTag(fileName: &quot;complex-changelog-001.md&quot;, original: &quot;# Changelog\n\nAll notable changes to this project&quot;···)" time="0.3094597" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Features.UpdateChangeLog.ChangeLogTransformerTests" name="UpdateChangelog_MovesUnreleasedToNewTag(fileName: &quot;basic-changelog-001.md&quot;, original: &quot;# Changelog\n\n## [Unreleased]\n\n### Added\n\n- N&quot;···)" time="0.0108453" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetIncorrectly_ThenThrowsArgumentException(repositoryUrl: &quot;MissingForwardSlash&quot;)" time="0.1358105" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetIncorrectly_ThenThrowsArgumentException(repositoryUrl: &quot;Too/Many/Slashes/In/Repository/Name&quot;)" time="0.0081342" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Features.UpdateChangeLog.ChangeLogTransformerTests" name="UpdateChangelog_ThrowsIfNoUnreleasedSection" time="0.0892117" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetIncorrectly_ThenThrowsArgumentException(repositoryUrl: &quot;&quot;)" time="0.0032224" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetIncorrectly_ThenThrowsArgumentException(repositoryUrl: &quot;!$%£^$%£^$%$!¬$%YGFVS^%£YERGSDV WASDZXGHC&amp;Y&quot;)" time="0.0030985" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenInputsCreated_ThenDateShouldBeSetToToday" time="0.0035077" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenRepositoryNameShouldBeSetCorrectly(repositoryUrl: &quot;AnotherOwner/AnotherRepository&quot;, _: &quot;AnotherOwner&quot;, expectedRepositoryName: &quot;AnotherRepository&quot;)" time="0.0026057" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenRepositoryNameShouldBeSetCorrectly(repositoryUrl: &quot;TestOwner/TestRepo&quot;, _: &quot;TestOwner&quot;, expectedRepositoryName: &quot;TestRepo&quot;)" time="0.0025764" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenRepositoryUrlSetCorrectly_ThenRepositoryNameShouldBeSetCorrectly(repositoryUrl: &quot;ChangeLogger/ChangeLogger.Action&quot;, _: &quot;ChangeLogger&quot;, expectedRepositoryName: &quot;ChangeLogger.Action&quot;)" time="0.0023586" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenTagIsSetCorrectly_ThenTagShouldSetInInputsCorrectly" time="0.0025588" />
+    <testcase classname="ChangeLogger.Action.UnitTests.Shared.InputGeneratorTests" name="CreateInputs_WhenChangeLogPathSetCorrectly_ThenChangeLogPathShouldBeSetInInputs" time="0.0025471" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.1+bf6400fd51 (64-bit .NET 8.0.17)
+[xUnit.net 00:00:00.13]   Discovering: ChangeLogger.Action.UnitTests
+[xUnit.net 00:00:00.20]   Discovered:  ChangeLogger.Action.UnitTests
+[xUnit.net 00:00:00.24]   Starting:    ChangeLogger.Action.UnitTests
+[xUnit.net 00:00:00.75]   Finished:    ChangeLogger.Action.UnitTests
+</system-out>
+    <system-err></system-err>
+  </testsuite>
+</testsuites>
