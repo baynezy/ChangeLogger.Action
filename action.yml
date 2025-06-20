@@ -1,0 +1,25 @@
+name: 'ChangeLog Generator Action'
+description: 'Updates your changelog on releases'
+inputs:
+  tag:
+    description: 'The tag of the release'
+    required: true
+  log-path:
+    description: 'The path to the CHANGELOG.md file'
+    required: true
+  repo-path:
+    description: 'The path to the repository'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/afterlife-guide/changelog.action:0.0.1.2'
+  args:
+    - '-t'
+    - ${{ inputs.tag }}
+    - '-l'
+    - '/github/workspace${{ inputs.log-path }}'
+    - '-p'
+    - '/github/workspace${{ inputs.repo-path }}'
+branding:
+  icon: 'git-merge'
+  color: 'red'
