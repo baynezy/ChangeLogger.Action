@@ -26,10 +26,11 @@ Then you can use this action in your workflow to read this file:
 
 ```yaml
     - name: Update Changelog
-      uses: baynezy/ChangeLogger.Action@0.1.0
+      uses: baynezy/ChangeLogger.Action@0.1.0.0
       with:
-        tag: '1.0.0'
-        path: './'
+        tag: '1.0.0.0'
+        repo-path: '/'
+        log-path: './CHANGELOG.md'
 ```
 
 ## License

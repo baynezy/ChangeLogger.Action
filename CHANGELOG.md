@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0.3] - 2025-06-20
+
+### Changed
+
+- Update README instructions to be accurate with the latest version of the action (#28)
+- Dogfood the action in the repository itself (#29)
+
 ## [0.0.6.10] - 2025-06-20
 
 ## [0.0.5.9] - 2025-06-20
@@ -24,7 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project skeleton (#1)
 - Initial Action Code
 
-[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/0.0.6.10...HEAD
+[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/1.0.0.3...HEAD
+[1.0.0.3]: https://github.com/baynezy/ChangeLogger.Action/compare/0.0.6.10...1.0.0.3
 [0.0.6.10]: https://github.com/baynezy/ChangeLogger.Action/compare/0.0.5.9...0.0.6.10
 [0.0.5.9]: https://github.com/baynezy/ChangeLogger.Action/compare/0.0.4.8...0.0.5.9
 [0.0.4.8]: https://github.com/baynezy/ChangeLogger.Action/compare/0.0.3.7...0.0.4.8
