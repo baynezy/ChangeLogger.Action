@@ -29,8 +29,6 @@ Then you can use this action in your workflow to read this file:
       uses: baynezy/ChangeLogger.Action@0.1.0.0
       with:
         tag: '1.0.0.0'
-        repo-path: '/'
-        log-path: './CHANGELOG.md'
 ```
 
 ## License

@@ -12,12 +12,14 @@ public class UpdateChangeLogOptions
     public required string Tag { get; [UsedImplicitly] init; }
     
     [Option('l', "log-path",
-        Required = true,
+        Required = false,
+        Default = "./CHANGELOG.md",
         HelpText = "The path to the CHANGELOG.md file, e.g., /path/to/repo/CHANGELOG.md.")]
-    public required string LogPath { get; [UsedImplicitly] init; }
+    public string LogPath { get; [UsedImplicitly] init; } = "./CHANGELOG.md";
     
-    [Option('p', "path",
-        Required = true,
+    [Option('p', "repo-path",
+        Required = false,
+        Default = "/",
         HelpText = "The path to the root of the repository, e.g., /path/to/repo.")]
-    public required string RepositoryPath { get; [UsedImplicitly] init; }
+    public string RepositoryPath { get; [UsedImplicitly] init; } = "/";
 }
