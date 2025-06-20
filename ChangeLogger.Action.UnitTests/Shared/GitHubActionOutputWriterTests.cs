@@ -4,11 +4,11 @@ namespace ChangeLogger.Action.UnitTests.Shared;
 
 public class GitHubActionOutputWriterTests : IDisposable
 {
-    private readonly GitHubActionOutputWriter sut;
+    private readonly GitHubActionOutputWriter _sut;
 
     public GitHubActionOutputWriterTests()
     {
-        sut = new GitHubActionOutputWriter();
+        _sut = new GitHubActionOutputWriter();
     }
 
     [Fact]
@@ -18,7 +18,7 @@ public class GitHubActionOutputWriterTests : IDisposable
         Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
 
         // act
-        var action = () => sut.WriteReleaseNotes("test content");
+        var action = () => _sut.WriteReleaseNotes("test content");
 
         // assert
         action.Should().NotThrow();
@@ -31,7 +31,7 @@ public class GitHubActionOutputWriterTests : IDisposable
         Environment.SetEnvironmentVariable("GITHUB_OUTPUT", "");
 
         // act
-        var action = () => sut.WriteReleaseNotes("test content");
+        var action = () => _sut.WriteReleaseNotes("test content");
 
         // assert
         action.Should().NotThrow();
@@ -52,7 +52,7 @@ public class GitHubActionOutputWriterTests : IDisposable
                 """;
 
             // act
-            sut.WriteReleaseNotes(releaseNotes);
+            _sut.WriteReleaseNotes(releaseNotes);
 
             // assert
             var content = File.ReadAllText(tempFile);
@@ -75,7 +75,7 @@ public class GitHubActionOutputWriterTests : IDisposable
             const string releaseNotes = "Simple single line";
 
             // act
-            sut.WriteReleaseNotes(releaseNotes);
+            _sut.WriteReleaseNotes(releaseNotes);
 
             // assert
             var content = File.ReadAllText(tempFile);
