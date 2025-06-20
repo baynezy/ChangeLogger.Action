@@ -46,9 +46,11 @@ jobs:
           patch-version: ${{ steps.increment_version.outputs.patch_version }}
           build-version: ${{ github.run_number }}
       - name: Update changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@3.1.0
+        uses: baynezy/ChangeLogger.Action@0.0.6.10
         with:
           tag: ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}
+          repo-path: '/'
+          log-path: './CHANGELOG.md'
           
       - name: Update docker image tag version in action.yml
         run: |
