@@ -30,7 +30,11 @@ Task("Build")
             ArgumentCustomization = args => args.Append("/p:Version=" + versionNumber)
 		});
 	});
-
+	
+Task("Build-and-Restore")
+    .IsDependentOn("Restore")
+    .IsDependentOn("Build");
+    
 Task("Test")
 	.Does(() =>
 	{

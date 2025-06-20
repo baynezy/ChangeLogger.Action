@@ -37,7 +37,7 @@ This document contains guidelines that GitHub Copilot should follow when assisti
 ## Running Tests
 
 1. Install the latest version of Cake `dotnet tool install Cake.Tool`.
-2. Build using `dotnet cake --target=Build`.
+2. Build using `dotnet cake --target=Build-and-Restore`.
 3. If that produces errors, fix those errors and build again. Repeat until the build is successful.
 4. Run tests using the Cake build script with `dotnet cake --testFilter="Category!=LocalTest"`.
 

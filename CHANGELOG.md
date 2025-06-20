@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Environment instructions for Copilot (#39)
+- Task in Cake to build and restore the project, and updating the copilot instructions to use it. (#42)
 
 ## [1.0.0.3] - 2025-06-20
 
