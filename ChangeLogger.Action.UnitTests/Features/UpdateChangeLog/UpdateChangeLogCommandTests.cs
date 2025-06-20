@@ -104,4 +104,22 @@ public class UpdateChangeLogCommandTests
         options.LogPath.Should().Be("./CHANGELOG.md");
         options.RepositoryPath.Should().Be("/");
     }
+
+    [Fact]
+    public void UpdateChangeLogOptions_WhenExplicitValuesProvided_ThenShouldUseProvidedValues()
+    {
+        // arrange
+        var args = new[] { "update", "--tag", "2.0.0", "--log-path", "/custom/CHANGELOG.md", "--repo-path", "/custom/repo" };
+
+        // act
+        var parseResult = Parser.Default.ParseArguments<UpdateChangeLogOptions>(args);
+        UpdateChangeLogOptions? options = null;
+        parseResult.WithParsed(opts => options = opts);
+
+        // assert
+        options.Should().NotBeNull();
+        options!.Tag.Should().Be("2.0.0");
+        options.LogPath.Should().Be("/custom/CHANGELOG.md");
+        options.RepositoryPath.Should().Be("/custom/repo");
+    }
 }
