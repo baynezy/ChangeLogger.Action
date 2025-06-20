@@ -26,10 +26,36 @@ Then you can use this action in your workflow to read this file:
 
 ```yaml
     - name: Update Changelog
+      id: changelog
       uses: baynezy/ChangeLogger.Action@0.1.0.0
       with:
         tag: '1.0.0.0'
 ```
+
+### Using the release notes output
+
+The action provides a `release-notes` output that contains the content from the `[Unreleased]` section of the changelog. This can be useful for creating GitHub releases or other automation:
+
+```yaml
+    - name: Update Changelog
+      id: changelog
+      uses: baynezy/ChangeLogger.Action@0.1.0.0
+      with:
+        tag: '1.0.0.0'
+    
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      with:
+        tag_name: '1.0.0.0'
+        release_name: 'Release 1.0.0.0'
+        body: ${{ steps.changelog.outputs.release-notes }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+The `release-notes` output will contain all the content from the `[Unreleased]` section before it's transformed, preserving the original markdown formatting.
 
 ## License
 

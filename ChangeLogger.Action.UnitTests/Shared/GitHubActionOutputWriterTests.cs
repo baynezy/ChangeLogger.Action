@@ -2,14 +2,20 @@ using ChangeLogger.Action.Shared;
 
 namespace ChangeLogger.Action.UnitTests.Shared;
 
-public class GitHubActionOutputWriterTests
+public class GitHubActionOutputWriterTests : IDisposable
 {
+    private readonly GitHubActionOutputWriter sut;
+
+    public GitHubActionOutputWriterTests()
+    {
+        sut = new GitHubActionOutputWriter();
+    }
+
     [Fact]
     public void WriteReleaseNotes_WhenGitHubOutputNotSet_DoesNothing()
     {
         // arrange
         Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
-        var sut = new GitHubActionOutputWriter();
 
         // act
         var action = () => sut.WriteReleaseNotes("test content");
@@ -23,7 +29,6 @@ public class GitHubActionOutputWriterTests
     {
         // arrange
         Environment.SetEnvironmentVariable("GITHUB_OUTPUT", "");
-        var sut = new GitHubActionOutputWriter();
 
         // act
         var action = () => sut.WriteReleaseNotes("test content");
@@ -40,7 +45,6 @@ public class GitHubActionOutputWriterTests
         try
         {
             Environment.SetEnvironmentVariable("GITHUB_OUTPUT", tempFile);
-            var sut = new GitHubActionOutputWriter();
             const string releaseNotes = """
                 ### Added
                 - New feature
@@ -57,7 +61,6 @@ public class GitHubActionOutputWriterTests
         finally
         {
             File.Delete(tempFile);
-            Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
         }
     }
 
@@ -69,7 +72,6 @@ public class GitHubActionOutputWriterTests
         try
         {
             Environment.SetEnvironmentVariable("GITHUB_OUTPUT", tempFile);
-            var sut = new GitHubActionOutputWriter();
             const string releaseNotes = "Simple single line";
 
             // act
@@ -82,7 +84,11 @@ public class GitHubActionOutputWriterTests
         finally
         {
             File.Delete(tempFile);
-            Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
         }
+    }
+
+    public void Dispose()
+    {
+        Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
     }
 }
