@@ -39,5 +39,6 @@ IHostBuilder CreateHostBuilder()
             sc.AddSingleton<IGitHubSettings, GitHubSettings>();
             sc.AddSingleton<IInputGenerator, InputGenerator>();
             sc.AddSingleton<IGitClient, GitClient>();
+            sc.AddSingleton<IGitHubActionOutputWriter, GitHubActionOutputWriter>();
         });
 }

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Release notes as output in the GitHub Action (#38)
+
 ### Changed
 
 - Made log-path and repo-path parameters optional with default values (#36)
