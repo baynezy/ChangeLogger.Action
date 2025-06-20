@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Made log-path and repo-path parameters optional with default values (#36)
+  - log-path defaults to './CHANGELOG.md'
+  - repo-path defaults to '/'
+  - Renamed Option longname from 'path' to 'repo-path' for consistency
+
 ### Added
 
 - Environment instructions for Copilot (#39)
