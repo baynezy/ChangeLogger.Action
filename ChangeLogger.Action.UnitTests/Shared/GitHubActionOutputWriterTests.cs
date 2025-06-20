@@ -52,6 +52,31 @@ public class GitHubActionOutputWriterTests
 
             // assert
             var content = File.ReadAllText(tempFile);
+            content.Should().Be($"release-notes<<EOF\n{releaseNotes}\nEOF\n");
+        }
+        finally
+        {
+            File.Delete(tempFile);
+            Environment.SetEnvironmentVariable("GITHUB_OUTPUT", null);
+        }
+    }
+
+    [Fact]
+    public void WriteReleaseNotes_WithSingleLineValue_UsesSimpleFormat()
+    {
+        // arrange
+        var tempFile = Path.GetTempFileName();
+        try
+        {
+            Environment.SetEnvironmentVariable("GITHUB_OUTPUT", tempFile);
+            var sut = new GitHubActionOutputWriter();
+            const string releaseNotes = "Simple single line";
+
+            // act
+            sut.WriteReleaseNotes(releaseNotes);
+
+            // assert
+            var content = File.ReadAllText(tempFile);
             content.Should().Be($"release-notes={releaseNotes}\n");
         }
         finally

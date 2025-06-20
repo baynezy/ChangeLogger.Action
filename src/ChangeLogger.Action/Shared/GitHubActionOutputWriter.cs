@@ -22,7 +22,18 @@ public class GitHubActionOutputWriter : IGitHubActionOutputWriter
 
     private static void WriteVariableToGitHubAction(TextWriter textWriter, string name, string value)
     {
-        var output = $"{name}={value}";
-        textWriter.WriteLine(output);
+        // Handle multi-line values by using GitHub's heredoc syntax for complex values
+        if (value.Contains('\n'))
+        {
+            var delimiter = "EOF";
+            textWriter.WriteLine($"{name}<<{delimiter}");
+            textWriter.WriteLine(value);
+            textWriter.WriteLine(delimiter);
+        }
+        else
+        {
+            var output = $"{name}={value}";
+            textWriter.WriteLine(output);
+        }
     }
 }
