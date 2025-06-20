@@ -7,17 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Release notes as output in the GitHub Action (#38)
+- Environment instructions for Copilot (#39)
+- Task in Cake to build and restore the project, and updating the copilot instructions to use it. (#42)
+
 ### Changed
 
 - Made log-path and repo-path parameters optional with default values (#36)
   - log-path defaults to './CHANGELOG.md'
   - repo-path defaults to '/'
   - Renamed Option longname from 'path' to 'repo-path' for consistency
-
-### Added
-
-- Environment instructions for Copilot (#39)
-- Task in Cake to build and restore the project, and updating the copilot instructions to use it. (#42)
 
 ## [1.0.0.3] - 2025-06-20
 

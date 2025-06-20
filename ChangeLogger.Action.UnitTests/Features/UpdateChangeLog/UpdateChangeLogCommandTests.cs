@@ -13,6 +13,7 @@ public class UpdateChangeLogCommandTests
     private readonly IFileReader _mockFileReader = Substitute.For<IFileReader>();
     private readonly IChangeLogTransformer _mockTransformer = Substitute.For<IChangeLogTransformer>();
     private readonly IInputGenerator _mockInputGenerator = Substitute.For<IInputGenerator>();
+    private readonly IGitHubActionOutputWriter _mockOutputWriter = Substitute.For<IGitHubActionOutputWriter>();
     private readonly ILogger<UpdateChangeLogCommand> _logger = new StubLogger<UpdateChangeLogCommand>();
 
     public UpdateChangeLogCommandTests()
@@ -21,6 +22,7 @@ public class UpdateChangeLogCommandTests
             _mockFileReader,
             _mockTransformer,
             _mockInputGenerator,
+            _mockOutputWriter,
             _logger);
     }
 
@@ -47,6 +49,7 @@ public class UpdateChangeLogCommandTests
     public void Update_ChangeLogDoesExist_ThenReturnsSuccessCode(
         UpdateChangeLogOptions options,
         string changeLogContent,
+        string releaseNotes,
         string updatedContent,
         Inputs inputs)
     {
@@ -57,6 +60,8 @@ public class UpdateChangeLogCommandTests
             .Returns(changeLogContent);
         _mockInputGenerator.CreateInputs(options)
             .Returns(inputs);
+        _mockTransformer.ExtractUnreleasedContent(changeLogContent)
+            .Returns(releaseNotes);
         _mockTransformer.Update(changeLogContent, inputs)
             .Returns(updatedContent);
 
@@ -66,6 +71,10 @@ public class UpdateChangeLogCommandTests
         // assert
         result.Should()
             .Be(0);
+        _mockTransformer.Received(1)
+            .ExtractUnreleasedContent(changeLogContent);
+        _mockOutputWriter.Received(1)
+            .WriteReleaseNotes(releaseNotes);
         _mockFileReader.Received(1)
             .WriteAllText(options.LogPath, updatedContent);
     }
@@ -78,6 +87,7 @@ public class UpdateChangeLogCommandTests
         // arrange
         var options = new UpdateChangeLogOptions { Tag = tag };
         var changeLogContent = "# Changelog\n\n## [Unreleased]\n- Some changes";
+        var releaseNotes = "\n- Some changes";
         var updatedContent = "# Changelog\n\n## [1.0.0] - 2023-01-01\n- Some changes";
         var inputs = new Inputs(tag, DateOnly.FromDateTime(DateTime.UtcNow), 
             new Repository("TestRepo", new Owner("TestOwner"), "hash123"), 
@@ -89,6 +99,8 @@ public class UpdateChangeLogCommandTests
             .Returns(changeLogContent);
         _mockInputGenerator.CreateInputs(options)
             .Returns(inputs);
+        _mockTransformer.ExtractUnreleasedContent(changeLogContent)
+            .Returns(releaseNotes);
         _mockTransformer.Update(changeLogContent, inputs)
             .Returns(updatedContent);
 
@@ -106,6 +118,10 @@ public class UpdateChangeLogCommandTests
             .Exists("./CHANGELOG.md");
         _mockFileReader.Received(1)
             .ReadAllText("./CHANGELOG.md");
+        _mockTransformer.Received(1)
+            .ExtractUnreleasedContent(changeLogContent);
+        _mockOutputWriter.Received(1)
+            .WriteReleaseNotes(releaseNotes);
         _mockFileReader.Received(1)
             .WriteAllText("./CHANGELOG.md", updatedContent);
     }

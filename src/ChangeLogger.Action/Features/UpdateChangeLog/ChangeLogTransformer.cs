@@ -21,6 +21,50 @@ public class ChangeLogTransformer : IChangeLogTransformer
         return UpdateTagLinks(newLogContent, inputs, previousVersion);
     }
 
+    public string ExtractUnreleasedContent(string logContent)
+    {
+        ValidateUnreleasedHeader(logContent);
+        
+        var lines = logContent.Split('\n');
+        var unreleasedIndex = -1;
+        var nextReleaseIndex = -1;
+
+        // Find the [Unreleased] header
+        for (var i = 0; i < lines.Length; i++)
+        {
+            if (lines[i].Trim() == UnreleasedHeader)
+            {
+                unreleasedIndex = i;
+                break;
+            }
+        }
+
+        if (unreleasedIndex == -1)
+        {
+            return string.Empty;
+        }
+
+        // Find the next release header (## [version] - date)
+        for (var i = unreleasedIndex + 1; i < lines.Length; i++)
+        {
+            var line = lines[i].Trim();
+            if (line.StartsWith("## [") && line.Contains("] - "))
+            {
+                nextReleaseIndex = i;
+                break;
+            }
+        }
+
+        // Extract content between headers
+        var startIndex = unreleasedIndex + 1;
+        var endIndex = nextReleaseIndex == -1 ? lines.Length : nextReleaseIndex;
+        
+        var releaseNotesLines = new string[endIndex - startIndex];
+        Array.Copy(lines, startIndex, releaseNotesLines, 0, endIndex - startIndex);
+        
+        return string.Join('\n', releaseNotesLines).Trim();
+    }
+
     private static string UpdateTagLinks(string logContent, Inputs inputs, string? previousVersion)
     {
         var unreleasedLink = FindUnreleasedLink(logContent);
