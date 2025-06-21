@@ -6,10 +6,12 @@ inputs:
     required: true
   log-path:
     description: 'The path to the CHANGELOG.md file'
-    required: true
+    required: false
+    default: 'CHANGELOG.md'
   repo-path:
     description: 'The path to the repository'
-    required: true
+    required: false
+    default: '/'
 outputs:
   release-notes:
     description: 'The content from the [Unreleased] section of the changelog'
