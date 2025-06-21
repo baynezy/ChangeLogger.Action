@@ -17,7 +17,7 @@ outputs:
     description: 'The content from the [Unreleased] section of the changelog'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/baynezy/changelog.action:0.0.6.10'
+  image: 'docker://ghcr.io/baynezy/changelog.action:1.1.1.13'
   args:
     - '-t'
     - ${{ inputs.tag }}
