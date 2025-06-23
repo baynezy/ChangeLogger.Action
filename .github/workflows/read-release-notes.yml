@@ -1,0 +1,29 @@
+name: Read Release Notes Test
+
+on:
+  push:
+  workflow_dispatch:
+    inputs: 
+        workflow_run_id:
+            description: 'The ID of the workflow run to read release notes from'
+            required: true
+            type: string
+
+jobs:
+  read-release-notes:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read release notes
+        uses: actions/download-artifact@v4
+        with:
+          name: release-notes
+          path: ./release-notes.txt
+          run-id: '${{ github.event.inputs.workflow_run_id }}'
+      - name: Display release notes
+        run: |
+          if [ -f ./release-notes.txt ]; then
+            cat ./release-notes.txt
+          else
+            echo "Release notes file not found."
+          fi
