@@ -8,7 +8,8 @@ on:
             description: 'The ID of the workflow run to read release notes from'
             required: true
             type: string
-
+permissions: 
+    contents: read
 jobs:
   read-release-notes:
     runs-on: ubuntu-latest
