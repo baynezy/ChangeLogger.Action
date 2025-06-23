@@ -11,7 +11,6 @@ on:
 
 jobs:
   read-release-notes:
-    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Read release notes
@@ -19,7 +18,7 @@ jobs:
         with:
           name: release-notes
           path: ./release-notes.txt
-          run-id: '${{ github.event.inputs.workflow_run_id }}'
+          run-id: '15825237366'
       - name: Display release notes
         run: |
           if [ -f ./release-notes.txt ]; then
