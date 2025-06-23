@@ -25,6 +25,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Display release notes
         run: |
+          ls
           if [ -f ./release-notes.txt ]; then
             cat ./release-notes.txt
           else
