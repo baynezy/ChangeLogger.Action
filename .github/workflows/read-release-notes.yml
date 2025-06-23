@@ -26,7 +26,8 @@ jobs:
       - name: Display release notes
         run: |
           ls -l
-          file ./release-notes.txt
+          cd ./release-notes.txt
+          ls -l
           if [ -f ./release-notes.txt ]; then
             cat ./release-notes.txt
           else
