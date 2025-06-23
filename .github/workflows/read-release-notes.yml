@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs: 
         workflow_run_id:
-          description: 'The ID of the workflow run to read release notes from'
-          required: true
-          type: string
+            description: 'The ID of the workflow run to read release notes from'
+            required: true
+            type: string
 permissions: 
     contents: read
     actions: read
@@ -16,12 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Read release notes
-        uses: dawidd6/action-download-artifact@v9
+        uses: actions/download-artifact@v4
         with:
-          branch: feature/issue-54-release
           name: release-notes
-          workflow: test-create-changelog.yml
           path: ./release-notes.txt
+          repository: '${{ github.repository }}'
+          run-id: '15825237366'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Display release notes
         run: |
           if [ -f ./release-notes.txt ]; then
