@@ -18,6 +18,7 @@ jobs:
         with:
           name: release-notes
           path: ./release-notes.txt
+          repository: '${{ github.repository }}'
           run-id: '15825237366'
       - name: Display release notes
         run: |
