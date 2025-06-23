@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeLogger.Action", "src\ChangeLogger.Action\ChangeLogger.Action.csproj", "{6BBAE286-FA85-4F73-87C5-60E5FCCCD68B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeLogger.Action.UnitTests", "ChangeLogger.Action.UnitTests\ChangeLogger.Action.UnitTests.csproj", "{016F0458-CFA3-4456-BE07-9B1A88EE9A9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeLogger.Action.UnitTests", "test\ChangeLogger.Action.UnitTests\ChangeLogger.Action.UnitTests.csproj", "{016F0458-CFA3-4456-BE07-9B1A88EE9A9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

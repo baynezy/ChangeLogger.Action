@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\ChangeLogger.Action\ChangeLogger.Action.csproj" />
+      <ProjectReference Include="..\..\src\ChangeLogger.Action\ChangeLogger.Action.csproj" />
     </ItemGroup>
 
 </Project>

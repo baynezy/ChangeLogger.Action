@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Moved test project to correct path in project (#52)
+
 ## [1.1.1.13] - 2025-06-21
 
 ### Fixed
