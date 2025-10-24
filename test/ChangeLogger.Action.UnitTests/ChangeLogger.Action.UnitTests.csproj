@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="AutoFixture.Xunit2" Version="5.0.0-preview0012" />
-        <PackageReference Include="AwesomeAssertions" Version="9.0.0" />
+        <PackageReference Include="AwesomeAssertions" Version="9.2.1" />
         <PackageReference Include="Bogus" Version="35.6.3" />
         <PackageReference Include="JunitXml.TestLogger" Version="6.1.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
