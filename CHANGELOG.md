@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-- Pinned all 3rd party GitHub Actions to full-length commit SHAs for enhanced security (#TBD)
+- Pinned all 3rd party GitHub Actions to full-length commit SHAs for enhanced security (#106)
 
 ### Changed
 
