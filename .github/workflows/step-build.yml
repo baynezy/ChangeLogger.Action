@@ -18,31 +18,31 @@ jobs:
       run: |
         echo "Branch: ${{ inputs.checkout-ref }}"
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
       with:
         ref: ${{ inputs.checkout-ref }}
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v5.0.0
+      uses: actions/setup-dotnet@d4c94342e560b34958eacfc5d055d21461ed1c5d # v5.0.0
       with:
         dotnet-version: 10.0.x
     - name: Restore
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@82c155d0304bc759d2d5b2cf24d5238b79dcb469 # v3
       with:
         target: Restore
     - name: Build
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@82c155d0304bc759d2d5b2cf24d5238b79dcb469 # v3
       with:
         target: Build
         arguments: |
           versionNumber: ${{inputs.version}}
     - name: Run tests
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@82c155d0304bc759d2d5b2cf24d5238b79dcb469 # v3
       with:
         target: Test
         arguments: |
           testFilter: "Category!=LocalTest"
     - name: Publish Unit Test Results
       if: ${{ github.actor != 'dependabot[bot]' }}
-      uses: EnricoMi/publish-unit-test-result-action/linux@v2
+      uses: EnricoMi/publish-unit-test-result-action/linux@6e8f8c55b476f977d1c58cfbd7e337cbf86d917f # v2
       with:
         files: "**/TestResults/*.xml"
