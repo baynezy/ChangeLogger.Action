@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+
+- Pinned all 3rd party GitHub Actions to full-length commit SHAs for enhanced security (#106)
+
 ## [1.2.0.6] - 2025-11-21
 
 ### Changed

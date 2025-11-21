@@ -23,12 +23,12 @@ jobs:
     name: "Draft a new release"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
       - name: Create release branch
         run: git checkout -b release/${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
       - name: Update Version Number
-        uses: Afterlife-Guide/SemVer.Action@1.3.0.15
+        uses: Afterlife-Guide/SemVer.Action@3e1a7c7a1ba13691ba082743de961ba3bb0245e6 # 1.3.0.15
         with:
           path: semver.json
           major-version: ${{ github.event.inputs.major_version }}
@@ -37,7 +37,7 @@ jobs:
           build-version: ${{ github.run_number }}
 
       - name: Update changelog
-        uses: baynezy/ChangeLogger.Action@1.1.2.5
+        uses: baynezy/ChangeLogger.Action@86fd50819a45d589129301d209ac61478795c924 # 1.1.2.5
         with:
           tag: ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
           repo-path: '/'
