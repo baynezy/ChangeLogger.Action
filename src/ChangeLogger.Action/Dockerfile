@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . ./
 RUN dotnet publish ./src/ChangeLogger.Action/ChangeLogger.Action.csproj -c Release -o out --no-self-contained
 
-FROM mcr.microsoft.com/dotnet/runtime:9.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine
 
 COPY --from=build-env /app/out .
 
