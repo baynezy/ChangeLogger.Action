@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgraded to .NET 10
+- Upgraded to .NET 10 (#102)
 
 ## [1.1.2.5] - 2025-11-07
 
