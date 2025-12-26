@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1.7] - 2025-12-26
+
 ### Security
 
 - Pinned all 3rd party GitHub Actions to full-length commit SHAs for enhanced security (#106)
@@ -66,7 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project skeleton (#1)
 - Initial Action Code
 
-[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.0.6...HEAD
+[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.1.7...HEAD
+[1.2.1.7]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.0.6...1.2.1.7
 [1.2.0.6]: https://github.com/baynezy/ChangeLogger.Action/compare/1.1.2.5...1.2.0.6
 [1.1.2.5]: https://github.com/baynezy/ChangeLogger.Action/compare/1.1.1.13...1.1.2.5
 [1.1.1.13]: https://github.com/baynezy/ChangeLogger.Action/compare/1.1.0.4...1.1.1.13
