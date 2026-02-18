@@ -1,0 +1,22 @@
+﻿name: Create Changelog Test
+
+on:
+  push:
+
+jobs:
+  create-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create changelog
+        id: create-changelog
+        uses: baynezy/ChangeLogger.Action@1.1.1.13
+        with: 
+          tag: '12.13.14.15'
+      - name: Save Release Notes to Disk
+        run: echo "${{ steps.create-changelog.outputs.release-notes }}" > release-notes.txt
+      - name: Upload Release Notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-notes
+          path: ./release-notes.txt
