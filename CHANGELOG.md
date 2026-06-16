@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.5.11] - 2026-06-16
+
 ## [1.2.4.10] - 2026-03-11
 
 ## [1.2.3.9] - 2026-03-04
@@ -74,7 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project skeleton (#1)
 - Initial Action Code
 
-[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.4.10...HEAD
+[unreleased]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.5.11...HEAD
+[1.2.5.11]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.4.10...1.2.5.11
 [1.2.4.10]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.3.9...1.2.4.10
 [1.2.3.9]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.2.8...1.2.3.9
 [1.2.2.8]: https://github.com/baynezy/ChangeLogger.Action/compare/1.2.1.7...1.2.2.8
